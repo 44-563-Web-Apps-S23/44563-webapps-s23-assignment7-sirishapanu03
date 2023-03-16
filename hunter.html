@@ -33,7 +33,7 @@
   <p id = penalty> Penalty is zero.</p>
   <p onclick="help()"> Click for help.</p>
   <p id = help> Help report</p>
-  <button onclick="set()">Bonus</button>
+  <button onclick="newLocBonus()">Bonus</button>
 
   <div class="container">
     <div class="d-flex">
@@ -128,7 +128,6 @@
 </div>
 
 <script>
-
             
             let checkCount=0;
             let penalty=0;
@@ -203,7 +202,7 @@
       }
     }
 
-    function bonus() {
+    function newLocBonus() {
       let mouseLocn = Math.floor(Math.random() * 24);
       let catLocn = Math.floor(Math.random() * 24);
       document.getElementById("bushes").innerHTML = "Number of bushes checked is " + 0;
