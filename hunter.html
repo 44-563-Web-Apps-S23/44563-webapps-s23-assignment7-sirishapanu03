@@ -128,7 +128,7 @@
 </div>
 
 <script>
-            
+  
             let checkCount=0;
             let penalty=0;
             let lastCheck=0;
@@ -151,12 +151,14 @@
                       pos=arr[location]
                       document.getElementById(pos).src="mouse.jpeg";
                       penalty=penalty-3;
+                      checkCount+=1;
                       gameOver=true;
                       
                   }
                   else if(location==21){
                       pos=arr[location]
                       document.getElementById(pos).src="tiger.jpg";
+                      checkCount+=1;
                       penalty=penalty+4;
                       gameOver=true;
                   }
