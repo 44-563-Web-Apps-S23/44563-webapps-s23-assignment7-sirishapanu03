@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html> <head> 
+    <title>Delay Queue Page </title>
+    <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: yellow;
+  }
+
+.flex-container > div {  
+  background-color: blue; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: brown;
+	  }
+	}
+</style></head>
+
+
+<body>
+    <h2> Sirisha Panuagnti builds a delaying queue</h2>
+        <div><input type="text" id="text1" ></div>
+        <br>
+		<div class="flex-container" id="target">
+		  <div class="delayQ">row item 1</div>   
+		  <div class="delayQ">row item 2</div>  
+		  <div class="delayQ">row item 3</div>  
+		</div>  
+    
+		<button onclick="division()">Add value</button>
+        <button onclick="get()">Get</button>
+        <button onclick="delay()">Delay</button>	
+</body>
+
+<script>
+
+    let removedItem
+
+    let queueItems=[]
+
+	function division(){
+		let ele1 = document.createElement("div");
+		ele1.innerHTML = document.getElementById('text1').value;
+		ele1.style.color = "red";
+        ele1.className="delayQ";
+
+		let ele = document.getElementById('target');
+		ele.appendChild(ele1);
+	}
+       
+    function delay(){
+        ele2 = document.getElementById('target')
+        queueItems=document.getElementsByClassName('delayQ');
+        let ln=queueItems.length;
+        if(ln==1|| ln==0){
+            return;
+        }
+        else if(ln>=2){
+            removedItem=queueItems[0];
+            queueItems[0].remove();
+	        ele2.append(removedItem,ele2.firstChild)
+        }
+        
+    }
+     
+    function get(){
+        queueItems=document.getElementsByClassName('delayQ');
+        let ln=queueItems.length;
+        if(ln>0){
+            queueItems[0].remove();
+        }    
+
+    }
+</script>
+</html>	
