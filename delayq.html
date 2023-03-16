@@ -31,9 +31,10 @@
 		  <div class="delayQ">row item 3</div>  
 		</div>  
     
-		<button onclick="division()">Add value</button>
+		<button onclick="makeNewDiv()">Add value</button>
         <button onclick="get()">Get</button>
-        <button onclick="delay()">Delay</button>	
+        <button onclick="delay()">Delay</button>
+        <button onclick="promote()">Promote</button>	
 </body>
 
 <script>
@@ -42,7 +43,7 @@
 
     let queueItems=[]
 
-	function division(){
+	function makeNewDiv(){
 		let ele1 = document.createElement("div");
 		ele1.innerHTML = document.getElementById('text1').value;
 		ele1.style.color = "red";
@@ -75,5 +76,18 @@
         }    
 
     }
+
+    function promote(){
+
+        let ln=queueItems.length;
+        
+        let rem=Math.floor(Math.random()*ln);
+
+        removedItem=queueItems[rem];
+        queueItems[rem].remove();
+        let ele2 = document.getElementById('target')
+	    ele2.insertBefore(removedItem,ele2.firstChild)
+    }
+
 </script>
 </html>	

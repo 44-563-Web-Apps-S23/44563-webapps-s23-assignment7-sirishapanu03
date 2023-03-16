@@ -33,6 +33,7 @@
   <p id = penalty> Penalty is zero.</p>
   <p onclick="help()"> Click for help.</p>
   <p id = help> Help report</p>
+  <button onclick="set()">Bonus</button>
 
   <div class="container">
     <div class="d-flex">
@@ -201,11 +202,25 @@
         document.getElementById("help").innerHTML = "sorry, no help available"
       }
     }
+
+    function bonus() {
+      let mouseLocn = Math.floor(Math.random() * 24);
+      let catLocn = Math.floor(Math.random() * 24);
+      document.getElementById("bushes").innerHTML = "Number of bushes checked is " + 0;
+      document.getElementById("penalty").innerHTML = "Penalty is " + 0;
+      for (i = 0; i < 24; i++) {
+        if (i == mouseLocn) {
+          document.getElementById(pos).src= "mouse.jpeg";
+        } else if (i == catLocn) {
+          document.getElementById(pos).src= "tiger.jpg";
+        } else {
+          document.getElementById(pos).src = "bushes.jpg";
+        }
+      }
+    }
     
     
   </script>
-
-
 
 </body>
 </html>
